@@ -6,84 +6,79 @@
     <title>Login - Women's Health Tracker</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff6f61, #ff8a75);
             margin: 0;
             padding: 0;
-        }
-        header {
-            background-color: #ff6f61;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-        nav ul li {
-            float: left;
-        }
-        nav ul li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        nav ul li a:hover {
-            background-color: #ff6f61;
-        }
-        main {
-            padding: 20px;
-        }
-        footer {
-            text-align: center;
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-        }
-        form {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 20px;
         }
         label, input {
+            display: block;
+            width: 100%;
             margin-bottom: 10px;
+            font-size: 16px;
+        }
+        input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff8a75;
+        }
+        .signup-link {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .signup-link a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="login-container">
         <h1>Login</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tracker.html">Period Tracker</a></li>
-                <li><a href="exercise.html">Yoga & Diet</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
+        <form action="tracker.html" method="post">
+            <label for="username">Username (Email):</label>
+            <input type="email" id="username" name="username" placeholder="Enter your email" required>
 
-    <main>
-        <section>
-            <form action="tracker.html" method="post">
-                <label for="username">Username (Email):</label>
-                <input type="email" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
 
-                <input type="submit" value="Login">
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
-    </footer>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+        </div>
+    </div>
 </body>
 </html>
