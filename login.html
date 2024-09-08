@@ -3,82 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Women's Health Tracker</title>
+    <title>Women's Health Tracker - Login</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff6f61, #ff8a75);
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #ff6f61;
+            padding: 1rem;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .login-container {
+
+        nav h2 {
+            color: white;
+            margin-left: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #ff8a75;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
             background-color: white;
-            border-radius: 15px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            width: 400px;
-            padding: 30px;
-            text-align: center;
+            color: #ff6f61;
         }
-        h1 {
+
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h1 {
+            text-align: center;
             color: #ff6f61;
             margin-bottom: 20px;
         }
-        label, input {
-            display: block;
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
             width: 100%;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        input {
-            padding: 12px;
+            padding: 10px;
+            margin: 10px 0;
             border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 5px;
         }
-        input[type="submit"] {
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
             background-color: #ff6f61;
-            color: white;
             border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
-        input[type="submit"]:hover {
+
+        .login-container input[type="submit"]:hover {
             background-color: #ff8a75;
         }
-        .signup-link {
-            margin-top: 15px;
-            font-size: 14px;
+
+        .login-container p {
+            text-align: center;
+            margin-top: 10px;
         }
-        .signup-link a {
+
+        .login-container p a {
             color: #ff6f61;
             text-decoration: none;
-            font-weight: bold;
         }
-        .signup-link a:hover {
+
+        .login-container p a:hover {
             text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav h2 {
+                margin: 0 auto;
+            }
+
+            .login-container {
+                width: 100%;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form action="tracker.html" method="post">
-            <label for="username">Username (Email):</label>
-            <input type="email" id="username" name="username" placeholder="Enter your email" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+<nav>
+    <h2>Health Tracker</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tracker.html">Period Tracker</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+</nav>
 
-            <input type="submit" value="Login">
-        </form>
+<div class="login-container">
+    <h1>Login</h1>
+    <form action="dashboard.html" method="POST">
+        <input type="text" name="username" placeholder="Enter your username (email)" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+</div>
 
-        <div class="signup-link">
-            <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
-        </div>
-    </div>
 </body>
 </html>
