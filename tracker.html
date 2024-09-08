@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Women's Health Tracker - Period Tracker</title>
+    <title>Period Tracker</title>
     <style>
         * {
             margin: 0;
@@ -14,9 +14,15 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f4f4f9;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
         }
 
+        /* Navbar styling */
         nav {
             background-color: #ff6f61;
             padding: 1rem;
@@ -24,6 +30,9 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav h2 {
@@ -55,57 +64,64 @@
             color: #ff6f61;
         }
 
-        .tracker-container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: white;
+        .main-content {
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
         }
 
-        .tracker-container h1 {
-            text-align: center;
+        h1 {
             color: #ff6f61;
             margin-bottom: 20px;
         }
 
-        .tracker-container label {
+        form {
+            margin: 20px auto;
+            max-width: 500px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
             display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-
-        .tracker-container input[type="date"],
-        .tracker-container input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .tracker-container input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #ff6f61;
-            border: none;
-            border-radius: 5px;
-            color: white;
+            margin-bottom: 10px;
             font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            color: #333;
         }
 
-        .tracker-container input[type="submit"]:hover {
+        form input[type="date"], form input[type="number"], form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        form button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
             background-color: #ff8a75;
         }
 
-        .tracker-container p {
+        .result {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        footer {
             text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #555;
+            padding: 10px;
+            background-color: #333;
+            color: white;
         }
 
         /* Responsive Design */
@@ -115,13 +131,8 @@
                 gap: 0.5rem;
             }
 
-            nav h2 {
-                margin: 0 auto;
-            }
-
-            .tracker-container {
-                width: 100%;
-                padding: 15px;
+            .main-content form {
+                padding: 10px;
             }
         }
     </style>
@@ -132,25 +143,51 @@
     <h2>Health Tracker</h2>
     <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="exercise.html">Yoga & Diet</a></li>
-        <li><a href="login.html">Sign In</a></li>
+        <li><a href="exercise.html">Yoga and Diet</a></li>
+        <li><a href="tracker.html">Period Tracker</a></li>
+        <li><a href="login.html">Login</a></li>
     </ul>
 </nav>
 
-<div class="tracker-container">
+<div class="main-content">
     <h1>Period Tracker</h1>
-    <form action="tracker.html" method="POST">
-        <label for="last-period">Enter your last period date:</label>
-        <input type="date" id="last-period" name="last-period" required>
+
+    <form id="trackerForm">
+        <label for="lastPeriod">Last Period Date:</label>
+        <input type="date" id="lastPeriod" name="lastPeriod" required>
         
-        <label for="cycle-length">Enter your average cycle length (days):</label>
-        <input type="text" id="cycle-length" name="cycle-length" placeholder="e.g., 28" required>
+        <label for="cycleLength">Average Cycle Length (in days):</label>
+        <input type="number" id="cycleLength" name="cycleLength" min="1" value="28" required>
         
-        <input type="submit" value="Track My Period">
+        <button type="button" onclick="calculateNextPeriod()">Predict Next Period</button>
     </form>
-    
-    <p>Track your next period easily and predict the best dates based on your last cycle!</p>
+
+    <div class="result" id="result"></div>
 </div>
+
+<footer>
+    <p>© 2024 Women's Health Tracker</p>
+</footer>
+
+<script>
+    function calculateNextPeriod() {
+        const lastPeriod = document.getElementById('lastPeriod').value;
+        const cycleLength = parseInt(document.getElementById('cycleLength').value, 10);
+
+        if (lastPeriod && cycleLength) {
+            const lastPeriodDate = new Date(lastPeriod);
+            const nextPeriodDate = new Date(lastPeriodDate);
+            nextPeriodDate.setDate(lastPeriodDate.getDate() + cycleLength);
+
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const nextPeriodFormatted = nextPeriodDate.toLocaleDateString(undefined, options);
+
+            document.getElementById('result').innerHTML = `Your predicted next period date is <strong>${nextPeriodFormatted}</strong>.`;
+        } else {
+            document.getElementById('result').innerHTML = 'Please fill in all fields.';
+        }
+    }
+</script>
 
 </body>
 </html>
