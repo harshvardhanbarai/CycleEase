@@ -3,150 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Women's Health Tracker - Login</title>
+    <title>Sign Up - Women's Health Tracker</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
-            padding: 20px;
-        }
-
-        nav {
-            background-color: #ff6f61;
-            padding: 1rem;
+            background: linear-gradient(135deg, #ff6f61, #ff8a75);
+            margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            height: 100vh;
         }
-
-        nav h2 {
-            color: white;
-            margin-left: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            gap: 1rem;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            background-color: #ff8a75;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav ul li a:hover {
+        .signup-container {
             background-color: white;
-            color: #ff6f61;
-        }
-
-        .login-container {
-            max-width: 400px;
-            margin: 50px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .login-container h1 {
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            width: 450px;
+            padding: 40px;
             text-align: center;
+        }
+        h1 {
             color: #ff6f61;
             margin-bottom: 20px;
         }
-
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
+        label, input {
+            display: block;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        input {
+            padding: 12px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 16px;
         }
-
-        .login-container input[type="submit"] {
-            width: 100%;
-            padding: 10px;
+        input[type="submit"] {
             background-color: #ff6f61;
-            border: none;
-            border-radius: 5px;
             color: white;
-            font-size: 1rem;
+            border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
-
-        .login-container input[type="submit"]:hover {
+        input[type="submit"]:hover {
             background-color: #ff8a75;
         }
-
-        .login-container p {
-            text-align: center;
-            margin-top: 10px;
+        .back-link {
+            margin-top: 15px;
+            font-size: 14px;
         }
-
-        .login-container p a {
+        .back-link a {
             color: #ff6f61;
             text-decoration: none;
+            font-weight: bold;
         }
-
-        .login-container p a:hover {
+        .back-link a:hover {
             text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            nav h2 {
-                margin: 0 auto;
-            }
-
-            .login-container {
-                width: 100%;
-                padding: 15px;
-            }
         }
     </style>
 </head>
 <body>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form action="tracker.html" method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
-<nav>
-    <h2>Health Tracker</h2>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tracker.html">Period Tracker</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-    </ul>
-</nav>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-<div class="login-container">
-    <h1>Login</h1>
-    <form action="dashboard.html" method="POST">
-        <input type="text" name="username" placeholder="Enter your username (email)" required>
-        <input type="password" name="password" placeholder="Enter your password" required>
-        <input type="submit" value="Login">
-    </form>
-    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-</div>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="lastPeriod">Last Period Date:</label>
+            <input type="date" id="lastPeriod" name="lastPeriod" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <input type="submit" value="Sign Up">
+        </form>
+
+        <div class="back-link">
+            <p>Already have an account? <a href="login.html">Login here</a>.</p>
+        </div>
+    </div>
 </body>
 </html>
