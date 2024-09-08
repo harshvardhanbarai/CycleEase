@@ -1,119 +1,191 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women's Health Tracker</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f4f4f9;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
         }
-        header {
+
+        /* Navbar styling similar to tracker.html */
+        nav {
             background-color: #ff6f61;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
+        nav h2 {
+            color: white;
+            margin-left: 20px;
+        }
+
         nav ul {
             list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
+            display: flex;
+            gap: 1rem;
         }
+
         nav ul li {
-            float: left;
+            display: inline;
         }
+
         nav ul li a {
-            display: block;
             color: white;
-            text-align: center;
-            padding: 14px 16px;
             text-decoration: none;
+            padding: 8px 16px;
+            background-color: #ff8a75;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
+
         nav ul li a:hover {
-            background-color: #ff6f61;
+            background-color: white;
+            color: #ff6f61;
         }
-        main {
+
+        .main-content {
             padding: 20px;
+            text-align: center;
+            flex: 1;
         }
-        section {
-            margin-bottom: 30px;
+
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 10px;
         }
-        iframe {
-            display: block;
-            margin: 0 auto;
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .videos, .schemes {
+            margin-top: 20px;
+        }
+
+        .videos h3, .schemes h3 {
+            margin-bottom: 15px;
+            color: #ff6f61;
+        }
+
+        .videos iframe, .schemes iframe {
             width: 100%;
-            height: 200px;
+            max-width: 560px;
+            height: 315px;
+            margin: 10px auto;
             border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        /* Footer styling */
         footer {
             text-align: center;
+            padding: 10px;
             background-color: #333;
             color: white;
-            padding: 10px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .videos iframe, .schemes iframe {
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Women's Health Tracker</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tracker.html">Period Tracker</a></li>
-                <li><a href="exercise.html">Yoga & Diet</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section>
-            <h2>Safety Videos for Women</h2>
-            <!-- First YouTube Video -->
-             
-            <iframe width="px" height="px" src="https://www.youtube.com/embed/j0b0zPhQjVI" title="YouTube Video"></iframe><br>
-            <!-- Second YouTube Video -->
-            <iframe width="px" height="px" src="https://www.youtube.com/embed/SSC12rZdU6M" title="YouTube Video" ></iframe>
-        </section>
+<nav>
+    <h2>Health Tracker</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="exercise.html">Yoga and Diet</a></li>
+        <li><a href="tracker.html">Period Tracker</a></li>
+        <li><a href="login.html">Login</a></li>
+    </ul>
+</nav>
 
-        <section>
-            <h2>Government Schemes for Women</h2>
-            <p>Beti Bachao Beti Padhao (BBBP): This scheme aims to address the declining child sex ratio and promote the survival,
-                protection, and education of the girl child. It targets raising awareness and improving the efficiency of welfare
-                services intended for girls. More details here.<br>
+<div class="main-content">
+    <h1>Women's Health and Safety</h1>
+    <p>Access resources, track your cycle, and stay healthy.</p>
+
+    <div class="videos">
+        <h3>Safety Videos</h3>
+        <!-- First Video -->
+        <iframe src="https://www.youtube.com/embed/j0b0zPhQjVI" allowfullscreen></iframe>
+        <!-- Second Video -->
+        <iframe src="https://www.youtube.com/embed/SSC12rZdU6M" allowfullscreen></iframe>
+        <!-- Third Video -->
+        <iframe src="https://www.youtube.com/embed/FtQb7XLBYBY" allowfullscreen></iframe>
+    </div>
+
+    <div class="schemes">
+        <h3>Government Schemes for Women</h3>
+        <p>
+            Beti Bachao Beti Padhao (BBBP): This scheme aims to address the declining child sex ratio and promote the survival, protection,
+            and education of the girl child. It targets raising awareness and improving the efficiency of welfare services intended for girls.<br>
             <a href="https://www.myscheme.gov.in/schemes/bbbp">https://www.myscheme.gov.in/schemes/bbbp</a>
-            </p>
+        </p>
 
-            <p>One Stop Centre (Sakhi): These centers provide support to women affected by violence. They offer services such as medical aid, police assistance,
-            legal aid, and psychological counseling under one roof.<br>
-                <a href="https://vikaspedia.in/social-welfare/women-and-child-development/women-development-1/one-stop-centre-scheme"></a>
-            </p>
+        <p>
+            One Stop Centre (Sakhi): These centers provide support to women affected by violence. They offer services such as medical aid,
+            police assistance, legal aid, and psychological counseling under one roof.<br>
+            <a href="https://vikaspedia.in/social-welfare/women-and-child-development/women-development-1/one-stop-centre-scheme">
+                https://vikaspedia.in/social-welfare/women-and-child-development/women-development-1/one-stop-centre-scheme</a>
+        </p>
 
-            <p>
-                wadhar Greh: This scheme provides shelter, food, and rehabilitation services to women in distress, including survivors of violence, widows, and
-                those deserted by their families. It aims to help women regain their dignity.<br>
-                <a href="https://www.india.gov.in/schemes-women">https://www.india.gov.in/schemes-women</a>
-            </p>
+        <p>
+            Swadhar Greh: This scheme provides shelter, food, and rehabilitation services to women in distress, including survivors of violence,
+            widows, and those deserted by their families. It aims to help women regain their dignity.<br>
+            <a href="https://www.india.gov.in/schemes-women">https://www.india.gov.in/schemes-women</a>
+        </p>
 
-            <p>
-                Ujjawala Scheme: Focuses on the prevention of trafficking and the rehabilitation of victims through rescue, reintegration, and repatriation.<br>
-                <a href="https://vikaspedia.in/energy/policy-support/pradhan-mantri-ujjwala-yojana#:~:text=Pradhan%20Mantri%20Ujjwala%20Yojana%20is,2016%20in%20Ballia%2C%20Uttar%20Pradesh">https://vikaspedia.in/energy/policy-support/pradhan-mantri-ujjwala-yojana#:~:text=Pradhan%20Mantri%20Ujjwala%20Yojana%20is,2016%20in%20Ballia%2C%20Uttar%20Pradesh</a>
-            </p>
+        <p>
+            Ujjawala Scheme: Focuses on the prevention of trafficking and the rehabilitation of victims through rescue, reintegration, and repatriation.<br>
+            <a href="https://vikaspedia.in/energy/policy-support/pradhan-mantri-ujjwala-yojana#:~:text=Pradhan%20Mantri%20Ujjwala%20Yojana%20is,2016%20in%20Ballia%2C%20Uttar%20Pradesh">
+                https://vikaspedia.in/energy/policy-support/pradhan-mantri-ujjwala-yojana#:~:text=Pradhan%20Mantri%20Ujjwala%20Yojana%20is,2016%20in%20Ballia%2C%20Uttar%20Pradesh
+            </a>
+        </p>
 
-            <p>Pradhan Mantri Matru Vandana Yojana (PMMVY): A maternity benefit program offering financial assistance of ₹6,000 to pregnant and lactating
-                mothers in three installments. The scheme is designed to encourage safe motherhood and healthcare.<br>
+        <p>
+            Pradhan Mantri Matru Vandana Yojana (PMMVY): A maternity benefit program offering financial assistance of ₹6,000 to
+            pregnant and lactating mothers in three installments. The scheme is designed to encourage safe motherhood and healthcare.<br>
             <a href="https://pmmvy.wcd.gov.in/">https://pmmvy.wcd.gov.in/</a>
-            </p>
-        </section>
-    </main>
+        </p>
+    </div>
+</div>
 
-    <footer>
-        <p>© 2024 Women's Health Tracker</p>
-    </footer>
+<footer>
+    <p>© 2024 Women's Health Tracker</p>
+</footer>
+
 </body>
 </html>
