@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,12 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
+            background-image: url('media/11.png'); /* Add your background image here */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             padding: 20px;
+            height: 100vh;
         }
 
         nav {
@@ -24,6 +29,11 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         nav h2 {
@@ -57,8 +67,8 @@
 
         .login-container {
             max-width: 400px;
-            margin: 50px auto;
-            background-color: white;
+            margin: 100px auto 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
@@ -127,26 +137,28 @@
         }
     </style>
 </head>
+
 <body>
 
-<nav>
-    <h2>Health Tracker</h2>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tracker.html">Period Tracker</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-    </ul>
-</nav>
+    <nav>
+        <h2>CycleEase</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tracker.html">Period Tracker</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </nav>
 
-<div class="login-container">
-    <h1>Login</h1>
-    <form action="dashboard.html" method="POST">
-        <input type="text" name="username" placeholder="Enter your username (email)" required>
-        <input type="password" name="password" placeholder="Enter your password" required>
-        <input type="submit" value="Login">
-    </form>
-    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-</div>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="dashboard.html" method="POST">
+            <input type="text" name="username" placeholder="Enter your username (email)" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
 
 </body>
+
 </html>
